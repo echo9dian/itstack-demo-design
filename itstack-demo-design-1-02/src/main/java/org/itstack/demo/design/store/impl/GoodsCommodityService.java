@@ -22,13 +22,14 @@ public class GoodsCommodityService implements ICommodity {
         deliverReq.setSku(commodityId);
         deliverReq.setOrderId(bizId);
         deliverReq.setConsigneeUserName(extMap.get("consigneeUserName"));
+        deliverReq.setConsigneeUserName("1");
         deliverReq.setConsigneeUserPhone(extMap.get("consigneeUserPhone"));
         deliverReq.setConsigneeUserAddress(extMap.get("consigneeUserAddress"));
 
         Boolean isSuccess = goodsService.deliverGoods(deliverReq);
 
-        logger.info("请求参数[优惠券] => uId：{} commodityId：{} bizId：{} extMap：{}", uId, commodityId, bizId, JSON.toJSON(extMap));
-        logger.info("测试结果[优惠券]：{}", isSuccess);
+        logger.info("请求参数[实物] => uId：{} commodityId：{} bizId：{} extMap：{}", uId, commodityId, bizId, JSON.toJSON(extMap));
+        logger.info("测试结果[实物]：{}", isSuccess);
 
         if (!isSuccess) throw new RuntimeException("实物商品发放失败");
     }
